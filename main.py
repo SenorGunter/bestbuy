@@ -38,9 +38,19 @@ def make_order():
     while True:
         product_input = input("Which product # do you want?")
         if product_input != "":
-            product_usable = best_buy.get_products()[int(product_input)]
+            product_id = int(product_input) - 1
+            product_usable = best_buy.get_products()[product_id]
             quantity_input = input("What amount do you want?")
-            shoppinglist.append((product_usable, int(quantity_input)))
+
+            if product_usable.get_quantity() > int(quantity_input):
+                shoppinglist.append((product_usable, int(quantity_input)))
+
+            elif product_usable.get_quantity() == int(quantity_input):
+                shoppinglist.append((product_usable, int(quantity_input)))
+                print("The stock ran out with this order")
+
+            else:
+                print("Entered quantity is too great")
         else:
             break
 

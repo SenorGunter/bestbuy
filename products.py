@@ -40,5 +40,5 @@ class Product:
 
     def buy(self, quantity) -> float:
         if quantity <= self.quantity:
-            self.set_quantity(quantity)
+            self.set_quantity((self.get_quantity() - quantity))
             return float(quantity * self.price)
