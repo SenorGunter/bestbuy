@@ -61,7 +61,7 @@ def main():
     while True:
         list_of_commands = {"1": lambda: list_all(),
                             "2": lambda: print(total_amount()),
-                            "3": lambda: make_order(),
+                            "3": lambda: (list_all(), make_order())
                             "4": lambda: exit()}
 
         menu()
